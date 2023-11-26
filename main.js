@@ -2,12 +2,15 @@
 const elList = document.querySelector('.ticketCard-area');
 let data = [];
 
-axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
-    .then((response) => {
-        // console.log(response.data.data); //測試拿到全部資料
-        data = response.data.data;
+axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi11.json')
+    .then(function (response) {
+        data = response.data.data
         render();
-    });
+    })
+    // 第六週修正，補上.catch error錯誤提示
+    .catch(function (error) {
+        console.log(error);
+    })
 
 function render() {
     let str = '';
